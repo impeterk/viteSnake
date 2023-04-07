@@ -1,11 +1,11 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter'
 import { styleCanvas } from './canvas'
+import { setupCounter } from './score'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="flex w-full justify-around">
+  <div class="flex w-full justify-around m-12">
     <a href="https://vitejs.dev" target="_blank" >
       <img src="${viteLogo}" class="h-32 aspect-square" alt="Vite logo" />
     </a>
@@ -13,9 +13,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <img src="${typescriptLogo}" class="h-32 aspect-square" alt="TypeScript logo" />
     </a>
   </div>
-      <button id="counter" type="button"></button>
-      <canvas id="canvas" class="border-sky-700 border-4" width="600xp" height="600px"></canvas>
+  <div class="m-4">
+  <button class="text-3xl text-gray-200" id="score"></button>
+  </div>
+      <canvas id="canvas" class="border-sky-500 border-8" width="600xp" height="600px"></canvas>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 styleCanvas(document.querySelector<HTMLCanvasElement>('#canvas')!)
+setupCounter(document.querySelector<HTMLButtonElement>("#score")!, 5)
